@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "318957408891",
+    "project_id": "moto-pattaya",
+    "storage_bucket": "moto-pattaya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318957408891:android:ed7470a98fa5f22368c8de",
+        "android_client_info": {
+          "package_name": "com.example.auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4b591ytXuNM3FythaY8WjX5YtO6h1MpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,21 +3,26 @@ part of 'auth_bloc.dart';
 @immutable
 sealed class AuthState {
   const AuthState();
-
-  bool get auhted => switch (this) {
-        AuthState$User user => user.user?.uid != null,
-        _ => false,
-      };
 }
 
 class AuthState$AuthInitial extends AuthState {
   const AuthState$AuthInitial();
 }
 
-class AuthState$User extends AuthState {
-  const AuthState$User(this.user);
+class AuthState$UnknownUser extends AuthState {
+  const AuthState$UnknownUser();
+}
 
-  final User? user;
+class AuthState$RegisteredUser extends AuthState {
+  const AuthState$RegisteredUser(this.user);
+
+  final AppUser user;
+}
+
+class AuthState$AnonymousUser extends AuthState {
+  const AuthState$AnonymousUser(this.user);
+
+  final AppUser user;
 }
 
 class AuthState$Error extends AuthState {

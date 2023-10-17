@@ -38,5 +38,16 @@ class WriteFilesListUseCase implements FilesListUseCase {
     return const Right(null);
   }
 
+  @override
+  Future<Either<Failure, void>> removeFile({
+    required String userId,
+    required String fileName,
+  }) async {
+    final pathRef = storage.child('${_getFilePath(userId)}/$fileName');
+    await pathRef.delete();
+
+    return const Right(null);
+  }
+
   String _getFilePath(String userId) => '$_rootPath$userId';
 }

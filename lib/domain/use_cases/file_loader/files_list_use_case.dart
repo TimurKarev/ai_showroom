@@ -11,4 +11,9 @@ abstract class FilesListUseCase {
     required String userId,
     required AppFile file,
   });
+
+  Future<Either<Failure, void>> removeFile({
+    required String userId,
+    required String fileName,
+  });
 }

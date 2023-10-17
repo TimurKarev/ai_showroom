@@ -6,4 +6,6 @@ class AppFile {
   });
 
   final File file;
+
+  String get name => file.path.split('/').last;
 }

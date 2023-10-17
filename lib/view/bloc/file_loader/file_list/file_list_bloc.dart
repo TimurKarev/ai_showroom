@@ -61,5 +61,12 @@ class FileListBloc extends Bloc<FileListEvent, FileListState> {
   Future<void> _removeFile(
     FileListEvent$RemoveFile event,
     Emitter<FileListState> emitter,
-  ) async {}
+  ) async {
+    await _useCase.removeFile(
+      userId: userId,
+      fileName: event.fileName,
+    );
+
+    add(const FileListEvent$Started());
+  }
 }

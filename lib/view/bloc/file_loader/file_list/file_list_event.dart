@@ -18,5 +18,7 @@ final class FileListEvent$AddFile extends FileListEvent {
 }
 
 final class FileListEvent$RemoveFile extends FileListEvent {
-  const FileListEvent$RemoveFile();
+  const FileListEvent$RemoveFile(this.fileName);
+
+  final String fileName;
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auth/data/use_case/files_list/write_files_list_use_case.dart';
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
 import 'package:auth/view/bloc/file_loader/file_list/file_list_bloc.dart';
+import 'package:auth/view/ui/common/tiles/file_tile.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,12 +51,21 @@ class FileLoaderPage extends StatelessWidget {
                 ),
                 BlocBuilder<FileListBloc, FileListState>(
                   builder: (context, state) {
-                    return Row(
-                      children: state.files
-                          .map(
-                            (file) => Text(file),
-                          )
-                          .toList(),
+                    return Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Row(
+                        children: state.files
+                            .map(
+                              (file) => FileTile(
+                                fileName: file,
+                                onDelete: () =>
+                                    context.read<FileListBloc>().add(
+                                          FileListEvent$RemoveFile(file),
+                                        ),
+                              ),
+                            )
+                            .toList(),
+                      ),
                     );
                   },
                 ),

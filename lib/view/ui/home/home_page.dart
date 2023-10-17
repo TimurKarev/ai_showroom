@@ -1,4 +1,5 @@
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
+import 'package:auth/view/ui/file_loader/file_loader_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,7 @@ class HomePage extends StatelessWidget {
         ],
         title: Text(title),
       ),
-      body: Center(),
+      body: const FileLoaderPage(),
     );
   }
 }

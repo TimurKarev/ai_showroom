@@ -21,6 +21,7 @@ dependencies:
   go_router: ^11.1.4
   file_picker: ^6.0.0
   firebase_storage: ^11.2.8
+  meta: ^1.9.1
 
 dev_dependencies:
   flutter_test:

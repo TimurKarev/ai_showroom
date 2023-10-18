@@ -4,8 +4,8 @@ part of 'file_list_bloc.dart';
 sealed class FileListState {
   const FileListState();
 
-  List<String> get files => switch (this) {
-        FileListState$Loaded loaded => loaded.files,
+  List<AppFileReference> get filesReference => switch (this) {
+        FileListState$Loaded loaded => loaded.filesReference,
         _ => [],
       };
 }
@@ -24,9 +24,9 @@ class FileListState$Error extends FileListState {
 
 class FileListState$Loaded extends FileListState {
   const FileListState$Loaded({
-    required this.files,
+    required this.filesReference,
   });
 
   @override
-  final List<String> files;
+  final List<AppFileReference> filesReference;
 }

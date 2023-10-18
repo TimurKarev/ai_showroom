@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:auth/data/use_case/files_list/write_files_list_use_case.dart';
+import 'package:auth/domain/models/files/app_file_reference.dart';
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
 import 'package:auth/view/bloc/file_loader/file_list/file_list_bloc.dart';
+import 'package:auth/view/ui/common/lists/list_picker.dart';
 import 'package:auth/view/ui/common/tiles/file_tile.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -53,18 +55,16 @@ class FileLoaderPage extends StatelessWidget {
                   builder: (context, state) {
                     return Padding(
                       padding: const EdgeInsets.all(24.0),
-                      child: Row(
-                        children: state.files
-                            .map(
-                              (file) => FileTile(
-                                fileName: file,
-                                onDelete: () =>
-                                    context.read<FileListBloc>().add(
-                                          FileListEvent$RemoveFile(file),
-                                        ),
+                      child: ListPicker<AppFileReference>(
+                        items: state.filesReference,
+                        itemBuilder: (fileReference) => FileTile(
+                          fileName: fileReference.fileName,
+                          onDelete: () => context.read<FileListBloc>().add(
+                                FileListEvent$RemoveFile(
+                                    fileReference: fileReference),
                               ),
-                            )
-                            .toList(),
+                        ),
+                        onApply: (_) {},
                       ),
                     );
                   },

@@ -1,6 +1,9 @@
+import 'package:auth/data/use_case/demonstration/fire_chat_use_case.dart';
+import 'package:auth/view/bloc/demonstration/chat/chat_bloc.dart';
 import 'package:auth/view/ui/demonstration/ai_chat.dart';
 import 'package:auth/view/ui/home/demonstration_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Demonstration extends StatefulWidget {
   const Demonstration({super.key});
@@ -14,15 +17,22 @@ class _DemonstrationState extends State<Demonstration> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      DemonstrationButtons(
-          index: _tabIndex,
-          onPressed: (index) {
-            setState(() {
-              _tabIndex = index;
-            });
-          }),
-      AiChat(),
-    ]);
+    return BlocProvider(
+      create: (context) => ChatBloc(
+        FireChatUseCase(),
+      ),
+      child: Column(children: [
+        DemonstrationButtons(
+            index: _tabIndex,
+            onPressed: (index) {
+              setState(() {
+                _tabIndex = index;
+              });
+            }),
+        const AiChat(
+          collectionName: 'test',
+        ),
+      ]),
+    );
   }
 }

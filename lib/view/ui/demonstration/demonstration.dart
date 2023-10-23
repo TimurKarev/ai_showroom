@@ -1,0 +1,28 @@
+import 'package:auth/view/ui/demonstration/ai_chat.dart';
+import 'package:auth/view/ui/home/demonstration_buttons.dart';
+import 'package:flutter/material.dart';
+
+class Demonstration extends StatefulWidget {
+  const Demonstration({super.key});
+
+  @override
+  State<Demonstration> createState() => _DemonstrationState();
+}
+
+class _DemonstrationState extends State<Demonstration> {
+  var _tabIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      DemonstrationButtons(
+          index: _tabIndex,
+          onPressed: (index) {
+            setState(() {
+              _tabIndex = index;
+            });
+          }),
+      AiChat(),
+    ]);
+  }
+}

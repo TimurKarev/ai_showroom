@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:auth/data/use_case/files_list/write_files_list_use_case.dart';
+import 'package:auth/data/use_case/files_list/fire_files_list_use_case.dart';
 import 'package:auth/domain/models/files/app_file_reference.dart';
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
 import 'package:auth/view/bloc/file_loader/file_list/file_list_bloc.dart';
@@ -28,7 +28,7 @@ class FileLoaderPage extends StatelessWidget {
     if (user?.id case final String userId when userId.isNotEmpty) {
       return BlocProvider(
         create: (context) => FileListBloc(
-          WriteFilesListUseCase(),
+          FireFilesListUseCase(),
           userId: userId,
         ),
         child: Builder(

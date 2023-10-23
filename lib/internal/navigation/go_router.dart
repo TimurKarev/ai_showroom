@@ -15,7 +15,7 @@ GoRouter goRouter(Listenable listenable) => GoRouter(
         ),
         GoRoute(
           path: '/home',
-          builder: (context, state) => const HomePage(title: 'Home Page'),
+          builder: (context, state) => const HomePage(),
         ),
         GoRoute(
           path: '/login',

@@ -5,8 +5,8 @@ import 'package:auth/domain/use_cases/file_loader/files_list_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class WriteFilesListUseCase implements FilesListUseCase {
-  WriteFilesListUseCase();
+class FireFilesListUseCase implements FilesListUseCase {
+  FireFilesListUseCase();
 
   static const _rootPath = 'user_files/';
 

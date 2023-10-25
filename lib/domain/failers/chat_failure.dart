@@ -6,6 +6,10 @@ sealed class ChatFailure extends Failure {
   });
 }
 
-class SomeChatFailure extends ChatFailure {
-  SomeChatFailure({required super.message});
+class ChatFailure$Unknown extends ChatFailure {
+  ChatFailure$Unknown({required super.message});
+}
+
+class ChatFailure$EmptyMessage extends ChatFailure {
+  const ChatFailure$EmptyMessage() : super(message: 'Chat message is empty');
 }

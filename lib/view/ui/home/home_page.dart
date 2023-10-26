@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   static const _title = 'AI LLM';
   static const _appBarTitleSpacing = 150.0;
-  static const _appBarExpandedHeight = 460.0;
+  static const _appBarExpandedHeight = 100.0;
 
   @override
   Widget build(BuildContext context) {

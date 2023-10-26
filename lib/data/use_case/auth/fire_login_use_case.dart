@@ -13,7 +13,7 @@ class FireLoginUseCase implements LoginUseCase<void> {
     try {
       final user = await _fire.signInAnonymously();
       return Right(user.user != null);
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (_) {
       rethrow;
     }
   }

@@ -1,4 +1,5 @@
 import 'package:auth/domain/models/files/app_file.dart';
+import 'package:auth/domain/models/files/app_file_reference.dart';
 import 'package:auth/domain/use_cases/file_loader/files_list_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -39,7 +40,7 @@ class FileListBloc extends Bloc<FileListEvent, FileListState> {
       ),
       (r) => emitter(
         FileListState$Loaded(
-          files: r,
+          filesReference: r,
         ),
       ),
     );
@@ -64,7 +65,7 @@ class FileListBloc extends Bloc<FileListEvent, FileListState> {
   ) async {
     await _useCase.removeFile(
       userId: userId,
-      fileName: event.fileName,
+      fileName: event.fileReference.fileName,
     );
 
     add(const FileListEvent$Started());

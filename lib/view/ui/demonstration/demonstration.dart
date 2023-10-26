@@ -1,4 +1,4 @@
-import 'package:auth/data/use_case/demonstration/fire_chat_use_case.dart';
+import 'package:auth/data/mock/use_cases/mock_chat_use_case.dart';
 import 'package:auth/view/bloc/demonstration/chat/chat_bloc.dart';
 import 'package:auth/view/ui/demonstration/ai_chat.dart';
 import 'package:auth/view/ui/home/demonstration_buttons.dart';
@@ -19,7 +19,8 @@ class _DemonstrationState extends State<Demonstration> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ChatBloc(
-        FireChatUseCase(),
+        MockChatUseCase(),
+        //DioChatUseCase(context.read<DioClient>()),
       ),
       child: Column(children: [
         DemonstrationButtons(

@@ -9,8 +9,10 @@ class ChatState$Idle extends ChatState {
   const ChatState$Idle();
 }
 
-class ChatState$Loading extends ChatState {
-  const ChatState$Loading();
+class ChatState$AiThinking extends ChatState {
+  const ChatState$AiThinking({required this.question});
+
+  final String question;
 }
 
 class ChatState$AnswerSuccess extends ChatState {

@@ -30,7 +30,7 @@ class FireChatUseCase implements ChatUseCase {
       return Right(result.body);
     } on FirebaseFunctionsException catch (e) {
       return Left(
-        SomeChatFailure(
+        ChatFailure$Unknown(
           message: e.details.toString(),
         ),
       );

@@ -1,6 +1,7 @@
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
 import 'package:auth/view/bloc/demonstration/chat/chat_bloc.dart';
 import 'package:auth/view/ui/demonstration/ai_text_field.dart';
+import 'package:auth/view/ui/demonstration/last_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,7 @@ class AiChat extends StatelessWidget {
                 ),
               ),
         ),
-        Placeholder(),
+        const LastLine(),
       ],
     );
   }

@@ -20,7 +20,10 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     ChatEvent$AskQuestion event,
     Emitter<ChatState> emitter,
   ) async {
-    emitter(const ChatState$Loading());
+    emitter(
+      ChatState$AiThinking(question: event.question),
+    );
+
     final result = await _useCase.askQuestion(
       question: event.question,
       collectionName: event.collectionName,

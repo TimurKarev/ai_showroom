@@ -1,5 +1,6 @@
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
 import 'package:auth/view/ui/demonstration/demonstration.dart';
+import 'package:auth/view/ui/home/call_to_action.dart';
 import 'package:auth/view/ui/home/description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
               [
                 Description(),
                 Demonstration(),
-                Placeholder(child: Text('Call To Action')),
+                const CallToAction(),
                 SizedBox(
                   height: 300,
                   child: Placeholder(

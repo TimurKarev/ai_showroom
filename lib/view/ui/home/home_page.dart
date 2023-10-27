@@ -1,7 +1,9 @@
 import 'package:auth/view/bloc/auth/auth/auth_bloc.dart';
+import 'package:auth/view/ui/common/logo/logo.dart';
 import 'package:auth/view/ui/demonstration/demonstration.dart';
 import 'package:auth/view/ui/home/call_to_action.dart';
 import 'package:auth/view/ui/home/description.dart';
+import 'package:auth/view/ui/home/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +12,6 @@ class HomePage extends StatelessWidget {
     super.key,
   });
 
-  static const _title = 'AI LLM';
   static const _appBarTitleSpacing = 150.0;
   static const _appBarExpandedHeight = 100.0;
 
@@ -29,18 +30,12 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.logout),
           ),
         ],
-        title: const Text(
-          _title,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
-            fontSize: 34,
-          ),
-        ),
+        title: const Logo(),
       ),
       body: CustomScrollView(
+        physics: const ClampingScrollPhysics(),
         slivers: [
-          SliverAppBar(
+          const SliverAppBar(
             pinned: false,
             snap: false,
             floating: true,
@@ -57,15 +52,10 @@ class HomePage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Description(),
-                Demonstration(),
+                const Description(),
+                const Demonstration(),
                 const CallToAction(),
-                SizedBox(
-                  height: 300,
-                  child: Placeholder(
-                    child: Text('Footer'),
-                  ),
-                ),
+                const Footer(),
               ],
             ),
           ),
